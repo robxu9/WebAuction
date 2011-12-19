@@ -44,7 +44,6 @@ public class WebAuction extends JavaPlugin{
 	public PluginDescriptionFile info;
     public static mysqlCore manageMySQL; // MySQL handler
 	public sqlCore manageSQLite; // SQLite handler
-    public static ArrayList<Location> mailLocations = new ArrayList<Location>();
     public static ArrayList<Location> recentRemove = new ArrayList<Location>();
     public static ArrayList<Location> shoutRemove = new ArrayList<Location>();
     public static HashMap<Player, Long> playerTimer = new HashMap<Player, Long>();
@@ -161,11 +160,6 @@ public class WebAuction extends JavaPlugin{
 				if (!this.manageMySQL.checkTable("WA_ShoutSigns")) {
 					this.log.info(this.logPrefix + "Creating table WA_ShoutSigns");
 					String query = "CREATE TABLE WA_ShoutSigns (id INT NOT NULL AUTO_INCREMENT, PRIMARY KEY(id), world VARCHAR(255), radius INT, x INT, y INT, z INT);";
-					this.manageMySQL.createTable(query);
-				}
-				if (!this.manageMySQL.checkTable("WA_ProtectedLocations")) {
-					this.log.info(this.logPrefix + "Creating table WA_ProtectedLocations");
-					String query = "CREATE TABLE WA_ProtectedLocations (id INT NOT NULL AUTO_INCREMENT, PRIMARY KEY(id), world VARCHAR(255), x INT, y INT, z INT);";
 					this.manageMySQL.createTable(query);
 				}
 				if (!this.manageMySQL.checkTable("WA_SaleAlerts")) {
