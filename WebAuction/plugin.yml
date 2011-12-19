@@ -2,6 +2,7 @@ name: WebAuction
 main: me.exote.webauction.WebAuction
 version: 0.6.1
 author: Exote
+depend: [Vault]
 commands:
   wa:
     description: WebAuction

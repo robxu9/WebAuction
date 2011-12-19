@@ -91,6 +91,7 @@ public class WebAuction extends JavaPlugin{
 		if (this.dbDatabase.equals(null)) {this.log.severe(this.logPrefix + "MySQL database is not defined"); }
 		
 		setupEconomy();
+		setupPermissions();
 		
 		// Declare MySQL Handler
 		this.manageMySQL = new mysqlCore(this.log, this.logPrefix, this.dbHost, this.dbDatabase, this.dbUser, this.dbPass);
