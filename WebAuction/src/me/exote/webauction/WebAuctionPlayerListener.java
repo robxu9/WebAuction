@@ -144,11 +144,7 @@ public class WebAuctionPlayerListener extends PlayerListener{
 	}
 	public void onPlayerInteract(PlayerInteractEvent event) {
 		if (event.getAction().equals(Action.RIGHT_CLICK_BLOCK)) {
-
-		Player player = event.getPlayer();
-		String playerName = player.getName();
 		Block block = event.getClickedBlock();
-		WebAuction.economy.getBalance(playerName);
 		if (block!=null){
 			Location blockLoc = block.getLocation();
 			int blockMat = block.getTypeId();
@@ -159,6 +155,8 @@ public class WebAuctionPlayerListener extends PlayerListener{
 				String[] lines = sign.getLines();
 				if (lines[0].equals("[WebAuction]")){
 					event.setCancelled(true);
+					Player player = event.getPlayer();
+					String playerName = player.getName();
 					if (WebAuction.playerTimer.get(player) < WebAuction.getCurrentMilli()){
 						WebAuction.playerTimer.put(player, WebAuction.getCurrentMilli()+ WebAuction.signDelay);
 						if (lines[1].equals("Deposit")){
